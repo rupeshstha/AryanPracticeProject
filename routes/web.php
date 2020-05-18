@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 
 Route::get('home', 'CustomerController@index')->name('customer.index');
+Route::post('store','CustomerController@store')->name('customer.store');
 
 
 

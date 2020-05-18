@@ -10,11 +10,37 @@
     <title>Hello, world!</title>
 </head>
 <body>
+
 <ul>
     @foreach($customers as $customer)
         <li>{{ $customer->name }}</li>
     @endforeach
 </ul>
+
+<div class="container">
+    <form action="{{ route('customer.store') }}" method="post">
+        @csrf
+
+        @foreach($errors->all() as $error )
+            <div class="text-danger"> {{ $error }}</div>
+        @endforeach
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <lable>Full Name</lable>
+                <input type="text" value="" class="form-control" name="name" placeholder="Enter your full name">
+            </div>
+            <div class="col-md-6 form-group">
+                <label for="">Last Name</label>
+                <input type="text" value="" class="form-control" name="last_name" placeholder="Enter your last name">
+            </div>
+            <div class="col-md-12 form-group">
+                <input type="submit" class="btn btn-success">
+            </div>
+        </div>
+    </form>
+</div>
+
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2020 at 01:51 PM
+-- Generation Time: May 18, 2020 at 01:58 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -39,10 +40,15 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Rojesh', NULL, NULL),
-(2, 'Rupesh', NULL, NULL),
-(3, 'Sadhana', NULL, NULL);
+INSERT INTO `customers` (`id`, `name`, `last_name`, `created_at`, `updated_at`) VALUES
+(1, 'Rojesh', NULL, NULL, NULL),
+(2, 'Rupesh', NULL, NULL, NULL),
+(3, 'Sadhana', NULL, NULL, NULL),
+(4, 'Rupesh Bus', NULL, '2020-05-18 05:45:05', '2020-05-18 05:45:05'),
+(5, 'Rupesh Shrestha', NULL, '2020-05-18 05:45:12', '2020-05-18 05:45:12'),
+(6, 'NGS', NULL, '2020-05-18 05:45:19', '2020-05-18 05:45:19'),
+(7, 'Rupesh Bus', NULL, '2020-05-18 06:06:54', '2020-05-18 06:06:54'),
+(8, 'Rupesh Bus', 'Calhoun', '2020-05-18 06:11:56', '2020-05-18 06:11:56');
 
 -- --------------------------------------------------------
 
@@ -81,7 +87,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
