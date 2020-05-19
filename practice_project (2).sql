@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2020 at 01:58 PM
+-- Generation Time: May 19, 2020 at 01:53 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -21,6 +21,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `practice_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blogs`
+--
+
+CREATE TABLE `blogs` (
+  `id` int(11) NOT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -48,7 +76,8 @@ INSERT INTO `customers` (`id`, `name`, `last_name`, `created_at`, `updated_at`) 
 (5, 'Rupesh Shrestha', NULL, '2020-05-18 05:45:12', '2020-05-18 05:45:12'),
 (6, 'NGS', NULL, '2020-05-18 05:45:19', '2020-05-18 05:45:19'),
 (7, 'Rupesh Bus', NULL, '2020-05-18 06:06:54', '2020-05-18 06:06:54'),
-(8, 'Rupesh Bus', 'Calhoun', '2020-05-18 06:11:56', '2020-05-18 06:11:56');
+(8, 'Rupesh Bus', 'Calhoun', '2020-05-18 06:11:56', '2020-05-18 06:11:56'),
+(9, 'Rupesh Bus', 'Clemons', '2020-05-19 06:07:41', '2020-05-19 06:07:41');
 
 -- --------------------------------------------------------
 
@@ -68,6 +97,18 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `blogs`
+--
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
@@ -84,10 +125,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `blogs`
+--
+ALTER TABLE `blogs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`

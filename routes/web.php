@@ -20,5 +20,8 @@ Route::get('home', 'CustomerController@index')->name('customer.index');
 Route::post('store','CustomerController@store')->name('customer.store');
 
 
+Route::get('blog-home','BlogController@index')->name('blog.index');
+
+
 
 
