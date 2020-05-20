@@ -87,6 +87,7 @@
             <div class="row">
                 <div class="col-lg-8 posts-list">
 
+                    @foreach( $blogs as $blog)
                     <div class="single-post row">
                         <div class="col-lg-3  col-md-3 meta-details">
                             <ul class="tags">
@@ -106,14 +107,14 @@
                             <div class="feature-img">
                                 <img class="img-fluid" src="img/blog/feature-img1.jpg" alt="">
                             </div>
-                            <a class="posts-title" href="blog-single.html"><h3>Astronomy Binoculars A Great Alternative</h3></a>
+                            <a class="posts-title" href="blog-single.html"><h3>{{ $blog->title }}</h3></a>
                             <p class="excert">
-                                MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.
+                                {{ $blog->description }}
                             </p>
                             <a href="blog-single.html" class="primary-btn">View More</a>
                         </div>
                     </div>
-
+                    @endforeach
 
                     <nav class="blog-pagination justify-content-center d-flex">
                         <ul class="pagination">

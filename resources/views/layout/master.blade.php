@@ -60,6 +60,7 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li><a href="{{ route('blog.index') }}">Home</a></li>
+                    <li><a href="{{ route('blog.insert.index') }}">Insert Blog</a></li>
                     <li><a href="">Contact</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->

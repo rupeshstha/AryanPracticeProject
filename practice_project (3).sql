@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2020 at 01:53 PM
+-- Generation Time: May 20, 2020 at 01:48 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -31,11 +31,23 @@ SET time_zone = "+00:00";
 CREATE TABLE `blogs` (
   `id` int(11) NOT NULL,
   `category_id` int(11) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `description` text,
-  `created_at` int(11) DEFAULT NULL,
-  `updated_at` int(11) DEFAULT NULL
+  `images` text,
+  `is_active` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `category_id`, `slug`, `title`, `description`, `images`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 2, 'anim-rerum-rem-solut', 'Anim rerum rem solut', 'Voluptatem aspernatu', NULL, 1, '2020-05-20 05:47:20', '2020-05-20 05:47:20'),
+(2, 3, 'in-ut-rerum-vel-reic', 'In ut rerum vel reic', 'Cumque minim eum est', NULL, 0, '2020-05-20 05:50:00', '2020-05-20 05:50:00'),
+(3, 2, 'amet-labore-obcaeca', 'Amet labore obcaeca', 'Voluptas sint sunt', NULL, 1, '2020-05-20 05:59:04', '2020-05-20 05:59:04');
 
 -- --------------------------------------------------------
 
@@ -49,6 +61,15 @@ CREATE TABLE `categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'Food', NULL, NULL),
+(2, 'Travel', NULL, NULL),
+(3, 'Technology', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -128,13 +149,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customers`

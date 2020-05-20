@@ -22,6 +22,9 @@ Route::post('store','CustomerController@store')->name('customer.store');
 
 Route::get('blog-home','BlogController@index')->name('blog.index');
 
+Route::get('insert-blog','BlogController@insert_index')->name('blog.insert.index');
+
+Route::post('store-blog','BlogController@store')->name('blog.store');
 
 
 
