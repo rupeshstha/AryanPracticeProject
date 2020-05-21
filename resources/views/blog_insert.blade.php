@@ -4,18 +4,21 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
     <title>Blog Insert</title>
 </head>
 <body>
 
 <div class="container">
     <h2 class="text-center"> Blog Insert Page </h2>
-    <form action="{{ route('blog.store') }}" method="post">
+    <form action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data">
         @csrf
+
+        @foreach($errors->all() as $error )
+            <div class="text-danger"> {{ $error }}</div>
+        @endforeach
+
         <div class="row">
             <div class="col-md-6 form-group">
                 <label for="">Title</label>
@@ -32,15 +35,18 @@
                 <label for="">Category</label>
                 <select name="category_id" class="form-control" id="category_id">
                     <option selected disabled>None</option>
-                    @foreach($categories as $category)
-                    <option value="{{ $category->id }}">{{$category->title}}</option>
+                    @foreach( $categories as $category )
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
                     @endforeach
                 </select>
             </div>
-
             <div class="col-md-12 form-group">
                 <label for="">Description</label>
                 <textarea name="description" class="form-control" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class="col-md-12 form-group">
+                <label for="">Images</label>
+                <input type="file" name="images[]" class="form-control" multiple="multiple" accept="image/*">
             </div>
             <div class="col-md-12">
                 <input type="submit" class="btn btn-success">
